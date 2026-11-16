@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarav Sharma – Portfolio</title>
+  <style>
+    /* ==== Design Tokens ==== */
+    :root {
+      --color-bg: #0a0a1a;               /* deep navy */
+      --color-surface: #151525;          /* slightly lighter for cards */
+      --color-primary: #6a0dad;          /* purple‑blue accent */
+      --color-primary-light: #8a2ddf;
+      --color-text: #e0e0f0;             /* light gray for contrast */
+      --color-muted: #a0a0c0;            /* secondary text */
+      --radius: 8px;
+      --transition: 0.3s ease;
+    }
+
+    /* ==== Global Reset & Base ==== */
+    *, *::before, *::after {margin:0; padding:0; box-sizing:border-box;}
+    html {scroll-behavior: smooth; font-size: 16px;}
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      min-height: 100vh;
+    }
+    a {color: var(--color-primary); text-decoration:none;}
+    a:hover, a:focus {text-decoration: underline;}
+    img {max-width:100%; display:block;}
+
+    /* ==== Focus Styles ==== */
+    :focus-visible {outline: 2px solid var(--color-primary-light); outline-offset: 2px;}
+
+    /* ==== Layout ==== */
+    header, nav, main, footer {padding: 1rem 2rem;}
+    nav {
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; background: var(--color-surface);
+      border-radius: var(--radius);
+    }
+    nav a {margin-left:1.5rem; font-weight:500;}
+    .logo {font-weight:700; font-size:1.25rem; color: var(--color-primary);}
+
+    .hero {
+      text-align:center; padding:4rem 1rem; background: linear-gradient(135deg, var(--color-primary), #1b1b3a);
+      color: var(--color-text);
+    }
+    .hero h1 {font-size:2.5rem; margin-bottom:0.5rem;}
+    .hero p {font-size:1.2rem; margin-bottom:1.5rem;}
+    .hero .cta {display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;}
+    .btn {
+      padding:0.75rem 1.5rem; border:none; border-radius: var(--radius);
+      background: var(--color-primary); color:#fff; font-weight:600; cursor:pointer;
+      transition: var(--transition);
+    }
+    .btn:hover, .btn:focus {background: var(--color-primary-light);}
+
+    main {max-width:1200px; margin:auto;}
+    section {margin:4rem 0;}
+    h2 {font-size:2rem; margin-bottom:1rem; position:relative;}
+    h2::after {
+      content:""; position:absolute; left:0; bottom:-0.3rem; width:3rem; height:3px; background:var(--color-primary);
+    }
+
+    /* ==== Skills ==== */
+    .skill-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem;}
+    .skill-card {
+      background: var(--color-surface); padding:0.75rem 1rem; border-radius: var(--radius);
+      text-align:center; font-weight:500; transition: var(--transition);
+    }
+    .skill-card:hover {background: var(--color-primary-light); color:#fff;}
+
+    /* ==== Projects ==== */
+    .project-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;}
+    .project-card {
+      background: var(--color-surface); border-radius: var(--radius); overflow:hidden; display:flex; flex-direction:column;
+      transition: var(--transition); border:1px solid transparent;
+    }
+    .project-card:hover {border-color: var(--color-primary); transform: translateY(-4px);}
+    .project-card .content {padding:1rem; flex-grow:1;}
+    .project-card h3 {margin-bottom:0.5rem; color: var(--color-primary-light);}
+    .tags {margin-top:0.5rem; display:flex; flex-wrap:wrap; gap:0.4rem;}
+    .tag {background: var(--color-primary); color:#fff; padding:0.2rem 0.5rem; border-radius:4px; font-size:0.85rem;}
+    .project-card a {margin-top:auto; display:inline-block; padding:0.5rem 0; color: var(--color-primary); font-weight:500;}
+
+    /* ==== Achievements ==== */
+    .list {list-style:disc inside; margin-left:1rem;}
+
+    /* ==== Contact ==== */
+    .contact-list {display:flex; flex-direction:column; gap:0.5rem;}
+    .contact-list a {font-weight:500;}
+
+    /* ==== Footer ==== */
+    footer {text-align:center; font-size:0.9rem; color: var(--color-muted); margin-top:2rem;}
+    footer a {margin:0 0.5rem;}
+
+    /* ==== Responsiveness ==== */
+    @media (max-width:768px) {
+      .hero h1 {font-size:2rem;}
+      nav {flex-direction:column; align-items:flex-start;}
+      nav a {margin:0.5rem 0 0;}
+    }
+
+    /* ==== Reduced Motion ==== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {transition:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Aarav Sharma</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Aarav Sharma</h1>
+    <p>Aspiring Software Engineer | AI Enthusiast | Building Ideas into Reality</p>
+    <div class="cta">
+      <a href="#projects" class="btn" role="button">View Projects</a>
+      <a href="#contact" class="btn" role="button">Contact Me</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Me -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi! I’m Aarav Sharma, a first‑year B.Tech Computer Science student at Newton School of Technology. I’m passionate about programming, artificial intelligence, and building technology that solves real‑world problems.</p>
+      <p>I enjoy experimenting with AI‑powered development tools, participating in hackathons, and exploring how software works behind the scenes. Currently, I’m strengthening my foundations in programming, web development, Git, GitHub, and AI‑assisted development.</p>
+      <p>My goal is to become a skilled software engineer and build products that create meaningful impact.</p>
+      <h3>Education</h3>
+      <p><strong>B.Tech in Computer Science (AI &amp; ML)</strong><br/>Newton School of Technology – First Year (2026‑2030)</p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">C (Basics)</div>
+        <div class="skill-card">JavaScript (Basics)</div>
+        <div class="skill-card">HTML5</div>
+        <div class="skill-card">CSS3</div>
+        <div class="skill-card">Git &amp; GitHub</div>
+        <div class="skill-card">VS Code</div>
+        <div class="skill-card">Antigravity IDE</div>
+        <div class="skill-card">ChatGPT</div>
+        <div class="skill-card">Gemini</div>
+        <div class="skill-card">Claude</div>
+        <div class="skill-card">Linux CLI</div>
+        <div class="skill-card">Problem Solving</div>
+        <div class="skill-card">Debugging</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="content">
+            <h3>AI Study Buddy</h3>
+            <p>An AI‑powered study assistant that helps students understand concepts, generate practice questions, and organise study sessions.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Gemini API</span>
+            </div>
+          </div>
+          <a href="https://github.com/example/ai-study-buddy" target="_blank" rel="noopener">GitHub ↗</a>
+        </article>
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="content">
+            <h3>Student Task Tracker</h3>
+            <p>A lightweight web app for managing assignments, tracking deadlines, and organising academic tasks.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <a href="https://github.com/example/student-task-tracker" target="_blank" rel="noopener">GitHub ↗</a>
+        </article>
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="content">
+            <h3>Smart Campus Navigator</h3>
+            <p>A hackathon prototype that helps new students explore campus facilities, locate places, and find essential information.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">AI‑assisted dev</span>
+            </div>
+          </div>
+          <a href="https://github.com/example/smart-campus-navigator" target="_blank" rel="noopener">GitHub ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <h2>Achievements &amp; Activities</h2>
+      <ul class="list">
+        <li>Participated in a college‑level Hacktoberfest hackathon.</li>
+        <li>Built multiple small projects using AI‑assisted development tools.</li>
+        <li>Actively exploring open‑source contributions and software development.</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-list">
+        <a href="mailto:aarav.sharma@example.com">aarav.sharma@example.com</a>
+        <a href="https://github.com/example" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/example" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Hyderabad, India</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aarav Sharma. All rights reserved.</p>
+    <p><a href="#about">About</a> | <a href="#skills">Skills</a> | <a href="#projects">Projects</a> | <a href="#contact">Contact</a></p>
+  </footer>
+</body>
+</html>
